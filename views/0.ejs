@@ -1,0 +1,89 @@
+
+<html>
+	<head>
+<link rel="stylesheet" href="../css/basic-quickflips.css" />
+<link rel="stylesheet" href="../css/hover-quickflips.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+
+@font-face {
+   font-family:digital-clock-font;
+		 src: url('./font/TickingTimebombBB.ttf');
+
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_bold.woff);
+    font-weight: bold;
+}
+
+p {
+    font-family: digital-clock-font;
+    font-size: 40px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<script language="JavaScript" type="text/javascript" src="../js/jquery.quickflip.min.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="../js/css3-animate-it.js">
+</script>
+
+<script >
+ $(function(){
+
+ $('.quickflip-wrapper').quickFlip();
+});
+</script>
+</head>
+<body>
+
+
+
+
+  <div class="containr">
+
+
+
+            <div class="repeat animated flip one">
+              <p>Hey</p>
+            </div>
+            <div class="repeat animated flip two">
+              <p>Andrew</p>
+            </div>
+
+</div>
+
+
+<!-- <div class="quickflip-wrapper">
+    <div>
+    <a href="#" style="font-size:120px;color:red;" class="quickFlipCta">Click to flip front panel</a>
+    </div>
+
+    <div>
+    <a href="#" style="font-size:120px;color:red;" class="quickFlipCta">Click to flip back panel</a>
+    </div>
+</div> -->
+</body>
+<script>
+$(document).ready(function(){
+	$.doTimeout(2500, function(){
+		$('.repeat.go').removeClass('go');
+
+		return true;
+	});
+	$.doTimeout(2520, function(){
+		$('.repeat').addClass('go');
+		return true;
+	});
+
+});
+
+</script>
+</html>

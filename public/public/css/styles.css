@@ -1,0 +1,24 @@
+#searchbtn {
+    border: 2px solid;
+
+    border-radius: 35px;
+}
+
+.select{
+  font-size: 13px;
+  color: black;
+  padding: 5px;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 35px;
+
+  *background: #58B14C;
+  font: inherit;
+   overflow:hidden;
+   width:350px;
+   font-size: 15px;
+
+
+   box-shadow: 1px 1px 11px #330033;
+ background: #58B14C  no-repeat scroll 319px
+}

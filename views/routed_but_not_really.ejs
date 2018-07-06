@@ -1,0 +1,240 @@
+
+<html>
+	<head>
+		<title>Display Board</title>
+
+<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.css" />
+
+		<link rel="stylesheet" href="/css/departure-board.css" />
+
+
+
+
+<style type="text/css">
+
+
+.zui-table {
+    border: solid 1px #FFFFFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+		text-align:center;
+		clear:both;
+		position:center;
+		margin-left:auto;
+		margin-right:auto;
+}
+
+.zui-table thead th {
+    background-color: #000000;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:24px;
+		color: white;
+}
+.zui-table tbody td {
+    border: solid 1px #ffffff;
+		background-color: #000000;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:20px;
+			color: white;
+			width: auto;
+}
+.zui-table-vertical tbody td {
+    border-top: none;
+    border-bottom: none;
+}
+tr:hover{
+ background:white;
+}
+.zui-table tr:hover td{
+			background-color: white;
+			color: black;
+}
+
+
+
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script language="JavaScript" type="text/javascript"
+src="/js/bootstrap.min.js"
+></script>
+
+	<script language="JavaScript" type="text/javascript">
+
+
+var p=new Date();
+var monthname=new Array("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+var TODAY = monthname[p.getMonth()] + " " + p.getDate();
+
+</script>
+<script src="../js/jquery.min.js" ></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<!-- Optional theme -->
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().indexOf(value) > -1)
+    });
+  });
+	$(".slct").on("change", function(val) {
+    var value = $(this).val();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().indexOf(value) > -1)
+    });
+  });
+});
+
+
+
+</script>
+
+
+	</head>
+
+	<body style="background-color:black;">
+		<center>
+
+				<div class="header">
+					<ul class="list">
+					<li class="listelement"><a href="/DisplayBoard/RoutedButNotReally">
+							<img class="logo" src="/img/LCL_White_E.png"/></a></li>
+
+				<li class="listelement" id="txt"> <script language="JavaScript" type="text/javascript">
+												document.write(TODAY);
+										</script></li>
+
+				</ul>
+
+
+
+				<ul class="list">
+
+<h1 style='font-size:55px;'><%=data2 %></h1>
+
+
+			</ul>
+
+
+
+
+			</div>
+		<h1 style="font-size: 70px; color:white"></h1>
+		</center>
+
+
+
+      <table  class="zui-table zui-table-vertical" >
+
+
+
+
+
+				<thead>
+
+					<tr>
+						<% for(var j = 0; j < data3.length; ++j) {%>
+						<th>
+							<%= data3[j].name%>
+						</th>
+						<% } %>
+					</tr>
+
+			  </thead>
+
+
+
+
+
+  <tbody id='myTable'>
+
+<tr>
+		<% for(var j = 0; j < data3.length; ++j) {%>
+		<%	var unique=[];%>
+
+<td  >
+	<select class='slct'  style="color:black">
+		<% for(var i = 0; i < data1.length; ++i) {%>
+
+		<%	if(unique.indexOf(data1[i][j]) === -1){%>
+			<%		unique.push(data1[i][j]);%>
+			<% if(data3[j].dbType == '12'){%>
+				<% var d = new Date(); %>
+				<% d.setTime(data1[i][j]); %>
+						<% if(d.setTime(data1[i][j]) == ''){%>
+						<% } else { %>
+				<option   value="<%= d.toDateString() ;%>"><%= d.toDateString() ;%></option>
+				<% } }else { %>
+
+				<option value="<%=data1[i][j]%>"> <%=data1[i][j]%></option>
+				<% } %>
+		<%	}%>
+
+<% } %>
+</select>
+</td>
+
+
+
+
+<% } %>
+</tr>
+    <% for(var i = 0; i < data1.length; ++i) {%>
+
+    <tr>
+			<% for(var j = 0; j < data3.length; ++j) {%>
+
+				<% if(data3[j].dbType == 12){%>
+					<% var d = new Date(); %>
+					<% d.setTime(data1[i][j]); %>
+					<% if(d.setTime(data1[i][j]) == ''){%>
+			<td  > </td>
+			<% } else { %>
+				<td  ><%= d.toDateString() ;%> </td>
+			<% } }else { %>
+
+			<td><%=data1[i][j]%></td>
+			<% } %>
+
+  <% } %>
+       </tr>
+
+  <% } %>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+	</body>
+</html>

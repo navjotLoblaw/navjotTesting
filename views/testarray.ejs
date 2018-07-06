@@ -1,0 +1,185 @@
+
+<html>
+	<head>
+		<title>Display Board</title>
+
+<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.css" />
+
+		<link rel="stylesheet" href="/css/departure-board.css" />
+
+
+
+
+<style type="text/css">
+
+
+.zui-table {
+    border: solid 1px #FFFFFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+		text-align:center;
+		clear:both;
+		position:center;
+		margin-left:auto;
+		margin-right:auto;
+}
+
+.zui-table thead th {
+    background-color: #000000;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:24px;
+		color: white;
+}
+.zui-table tbody td {
+    border: solid 1px #ffffff;
+		background-color: #000000;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:20px;
+			color: white;
+			width: auto;
+}
+.zui-table-vertical tbody td {
+    border-top: none;
+    border-bottom: none;
+}
+tr:hover{
+ background:white;
+}
+.zui-table tr:hover td{
+			background-color: white;
+			color: black;
+}
+
+
+
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script language="JavaScript" type="text/javascript"
+src="/js/bootstrap.min.js"
+></script>
+
+	<script language="JavaScript" type="text/javascript">
+
+
+var p=new Date();
+var monthname=new Array("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+var TODAY = monthname[p.getMonth()] + " " + p.getDate();
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().indexOf(value) > -1)
+    });
+  });
+	$(".slct").on("change", function(val) {
+    var value = $(this).val();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().indexOf(value) > -1)
+    });
+  });
+});
+
+
+
+</script>
+
+
+	</head>
+
+	<body style="background-color:black;">
+    <center>
+
+        <div class="header">
+          <ul class="list">
+          <li class="listelement"><a href="/DisplayBoard">
+            <img class="logo" src="/img/LCL_White_E.png"/></a></li>
+
+        <li class="listelement" id="txt"> <script language="JavaScript" type="text/javascript">
+                        document.write(TODAY);
+                    </script></li>
+
+        </ul>
+
+
+
+        <ul class="list">
+
+<h1 style='font-size:55px;'>Order Flow</h1>
+
+
+      </ul>
+
+
+
+
+      </div>
+    <h1 style="font-size: 70px; color:white"></h1>
+    </center>
+
+
+
+      <table  class="zui-table zui-table-vertical" >
+
+
+<thead>
+    <tr>
+
+
+    <th>Carton Type</th>
+    <th>PDT</th>
+		<th>NOT WAVED</th>
+		<th>NOT ALLOCATED</th>
+		<th>No LOU</th>
+		<th>TMS</th>
+		<th>Routed in TMS</th>
+
+		<th>NO OCL</th>
+		<th>NOT STARTED</th>
+		<th>PICKED</th>
+		<th>PICKING</th>
+		<th>STAGED</th>
+		<th>LOADED</th>
+    </tr>
+  </thead>
+<tbody >
+
+
+<% for(var j = 0; j < data2.length; ++j) {%>
+<tr>
+
+	<td><%=data2[j].cartonType%></td>
+<td><%=data2[j].pdt%></td>
+<td><%=data2[j]["Not Waved"]%></td>
+<td><%=data2[j]["Not Allocated"]%></td>
+<td><%=data2[j]["No LOU"]%></td>
+<td><%=data2[j]["LL OPEN"]%></td>
+
+<td><%=data2[j]["sum_LL"]%></td>
+
+<td><%=data2[j]["Not OCL"]%></td>
+<td><%=data2[j]["Not Started"]%></td>
+<td><%=data2[j].Picked%></td>
+<td><%=data2[j].Picking%></td>
+<td><%=data2[j].Staged%></td>
+<td><%=data2[j].Loaded%></td>
+ </tr>
+<% } %>
+
+</tbody>
+</table>
+</div>

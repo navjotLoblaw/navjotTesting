@@ -1,0 +1,315 @@
+
+
+<html>
+	<head>
+		<title>Display Board</title>
+
+<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<link rel="stylesheet" href="../css/departure-board.css" />
+		<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/flapper.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/morphext.css" />
+<link rel="stylesheet" href="../css/animate.css" />
+<style type="text/css">
+.zui-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:18px;
+}
+.zui-table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size:15px;
+}
+.zui-table-vertical tbody td {
+    border-top: none;
+    border-bottom: none;
+}
+.zui-table-col-odd {
+    background-color: #EEF7EE;
+}
+.zui-table-col-even {
+    background-color: #FFF;
+}
+</style>
+<script language="JavaScript" type="text/javascript"
+src="../js/jquery.min.js"
+></script>
+<script language="JavaScript" type="text/javascript"
+src="../js/bootstrap.min.js"
+></script>
+		<script language="JavaScript" type="text/javascript" src="../js/jquery.transform-0.9.3.js">
+		</script>
+
+		<script language="JavaScript" type="text/javascript" src="../js/jqueryflapper.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/flapdemo.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/morphext.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/jquery.leddisplay.js">
+		</script>
+
+	<script language="JavaScript" type="text/javascript">
+
+
+var d=new Date();
+var monthname=new Array("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+var TODAY = monthname[d.getMonth()] + " " + d.getDate();
+
+</script>
+<script type="text/javascript">
+
+var options = {
+
+horizontalPixelsCount: 90,
+
+verticalPixelsCount: 5,
+
+pixelSize: 5,
+
+disabledPixelColor: '#404040',
+
+enabledPixelColor: 'red',
+
+pathToPixelImage: 'pixel.png',
+
+stepDelay: 40,
+
+// only for canvas
+
+backgroundColor: '#202020',
+
+// only for canvas
+
+pixelRatio: 0.7,
+
+runImmidiatly: true
+
+};
+$(function(){
+	var options = {
+			pixelSize: 10,
+			stepDelay: 40,
+			horizontalPixelsCount:5,
+			verticalPixelsCount:5,
+			pixelRatio: 0.8,
+			runImmidiatly: false
+		};
+	$('.crl').leddisplay(options);
+
+	$('.crl').find('div').click(function(){
+		if ($(this).css('background-color') == 'rgb(255, 0, 0)')
+			$(this).css('background-color', "#404040")
+		else
+			$(this).css('background-color', 'red')
+
+	});
+})
+$('.demo-div').leddisplay($.extend(options, {pixelSize: 5}));
+
+</script>
+
+	</head>
+
+	<body style="background-color:black;">
+    <center>
+
+        <div class="header">
+          <ul class="list">
+          <li class="listelement"><a href="/DisplayBoard">
+            <img class="logo" src="../img/LCL_White_E.png"/></a></li>
+
+        <li class="listelement" id="txt"> <script language="JavaScript" type="text/javascript">
+                        document.write(TODAY);
+                    </script></li>
+
+        </ul>
+
+
+
+        <ul class="list">
+
+
+
+
+      </ul>
+
+
+
+
+      </div>
+    <h1 style="font-size: 70px; color:white"></h1>
+    </center>
+
+
+		<div class="center">
+
+      <table class="zui-table zui-table-vertical col-lg-12">
+  <colgroup>
+      <col class="zui-table-col-odd"></col>
+      <col class="zui-table-col-even"></col>
+      <col class="zui-table-col-odd"></col>
+      <col class="zui-table-col-even"></col>
+      <col class="zui-table-col-odd"></col>
+      <col class="zui-table-col-even"></col>
+  </colgroup>
+  <thead>
+      <tr>
+          <th scope="col">LD_LEG_ID</th>
+          <th scope="col">SHPG_LOC_CD</th>
+          <th scope="col">SHPG_LOC_NAME</th>
+          <th scope="col">STAT_CD</th>
+          <th scope="col">FROMDT</th>
+          <th scope="col">TODT</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% for(var i = 0; i < data1.length; ++i) {%>
+    <tr>
+           <td><%=data1[i][0]%></td>
+           <td><%=data1[i][1]%></td>
+           <td><%=data1[i][2]%></td>
+           <td><%=data1[i][3]%></td>
+           <td><%=data1[i][4]%></td>
+           <td><%=data1[i][5]%></td>
+       </tr>
+      <% } %>
+
+    </tbody>
+</table>
+
+
+
+</div>
+		<script language="JavaScript">
+    $(".js-rotating").Morphext({
+        // The [in] animation type. Refer to Animate.css for a list of available animations.
+        animation: "bounceIn",
+        // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+        separator: ",",
+        // The delay between the changing of each phrase in milliseconds.
+        speed: 2000,
+        complete: function () {
+            // Called after the entrance animation is executed.
+        }
+    });
+		var options={
+			chars: null,
+
+  timing: 0,
+  min_timing: 0,
+	 width: 70,
+	align: 'left',
+	chars_preset: 'alpha',
+	transform: true,
+	threshhold: 0,
+ };
+
+
+
+
+
+        $('#date1').flapper(options).val('    LD_LEG_ID : <%= data1[0][0] %>').change();
+$('.rob').flapper(options).val().change();
+
+        $('#hp1').flapper(options).val('  SHPG_LOC_CD : <%= data1[0][1] %>').change();
+
+
+        $('#fpp1').flapper(options).val('SHPG_LOC_NAME : <%= data1[0][2] %>').change();
+
+
+        $('#flow1').flapper(options).val('     STAT_CD : <%= data1[0][3] %>').change();
+
+
+        $('#hp_left1').flapper(options).val('       FROMDT : <%= data1[0][4] %>').change();
+
+        $('#fpp_left1').flapper(options).val('        TODT : <%= data1[0][5] %>').change();
+
+        $('#date2').flapper(options).val('    LD_LEG_ID : <%= data1[0][0] %>').change();
+
+
+        $('#hp2').flapper(options).val('  SHPG_LOC_CD : <%= data1[0][1] %>').change();
+
+
+        $('#fpp2').flapper(options).val('SHPG_LOC_NAME : <%= data1[0][2] %>').change();
+
+
+        $('#flow2').flapper(options).val('     STAT_CD : <%= data1[0][3] %>').change();
+
+
+        $('#hp_left2').flapper(options).val('       FROMDT : <%= data1[0][4] %>').change();
+
+        $('#fpp_left2').flapper(options).val('        TODT : <%= data1[0][5] %>').change();
+
+
+
+
+
+
+		</script>
+		<script>
+		(function($){
+$.fn.extend({
+rotaterator: function(options) {
+
+	 var defaults = {
+			 fadeSpeed: 100,
+			 pauseSpeed: 5200,
+child:null
+	 };
+
+	 var options = $.extend(defaults, options);
+
+	 return this.each(function() {
+				 var o =options;
+				 var obj = $(this);
+				 var items = $(obj.children(), obj);
+ items.each(function() {$(this).hide();})
+ if(!o.child){var next = $(obj).children(':first');
+ }else{var next = o.child;
+ }
+ $(next).fadeIn(o.fadeSpeed, function() {
+	 $(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function() {
+		 var next = $(this).next();
+		 if (next.length == 0){
+				 next = $(obj).children(':first');
+		 }
+		 $(obj).rotaterator({child : next, fadeSpeed : o.fadeSpeed, pauseSpeed : o.pauseSpeed});
+	 })
+ });
+	 });
+}
+});
+})(jQuery);
+
+$(document).ready(function() {
+
+  $('#lumpQty').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+  $('#freePort').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+
+$('.rotate').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+$('#rotate1').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+
+});
+	        </script>
+
+
+
+	</body>
+</html>

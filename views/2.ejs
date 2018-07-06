@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Display Board</title>
+
+
+<meta http-equiv="refresh" content="30"/>
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/morphext.css" />
+<link rel="stylesheet" href="../css/animate.css" />
+<script language="JavaScript" type="text/javascript"
+src="../js/jquery.min.js"
+></script>
+<script language="JavaScript" type="text/javascript"
+src="../js/bootstrap.min.js"
+></script>
+<script language="JavaScript" type="text/javascript" src="../js/morphext.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+
+</script>
+</head>
+<body style="background-color:white;">
+  <div >
+  <span  id="js-rotating1">Date, HPP, HPP_flow, Flow_Left</span><span  id="js-rotating"><%= sql.rows[0][1] %>, <%= sql.rows[0][4] %>, <%= sql.rows[0][2] %>, <%= sql.rows[0][3] %></span>
+
+  </div>
+  <h1> I am <div id="rotate"> <div><input type="text" class="form-control" name="user_id"
+  											value='abc'></div> <div>invincible.</div> <div>unbeatable.</div> <div>indestructible.</div> </div> </h1>
+
+	</body>
+  <script>
+  (function($){
+    $.fn.extend({
+        rotaterator: function(options) {
+
+            var defaults = {
+                fadeSpeed: 500,
+                pauseSpeed: 100,
+				child:null
+            };
+
+            var options = $.extend(defaults, options);
+
+            return this.each(function() {
+                  var o =options;
+                  var obj = $(this);
+                  var items = $(obj.children(), obj);
+				  items.each(function() {$(this).hide();})
+				  if(!o.child){var next = $(obj).children(':first');
+				  }else{var next = o.child;
+				  }
+				  $(next).fadeIn(o.fadeSpeed, function() {
+						$(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function() {
+							var next = $(this).next();
+							if (next.length == 0){
+									next = $(obj).children(':first');
+							}
+							$(obj).rotaterator({child : next, fadeSpeed : o.fadeSpeed, pauseSpeed : o.pauseSpeed});
+						})
+					});
+            });
+        }
+    });
+})(jQuery);
+
+ $(document).ready(function() {
+        $('#rotate').rotaterator({fadeSpeed:500, pauseSpeed:100});
+ });
+            $("#js-rotating").Morphext({
+                animation: "flipInX",
+                complete: function () {
+                    console.log("This is called after a phrase is animated in! Current phrase index: " + this.index);
+                }
+            });
+            $("#js-rotating1").Morphext({
+                animation: "flipInX",
+                complete: function () {
+                    console.log("This is called after a phrase is animated in! Current phrase index: " + this.index);
+                }
+            });
+        </script>
+</html>

@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<title>Display Board</title>
+
+
+<!-- <meta http-equiv="refresh" content="30"/> -->
+<meta http-equiv="refresh" />
+		<link rel="stylesheet" href="../css/departure-board.css" />
+<link rel="stylesheet" href="../css/flapper.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<script language="JavaScript" type="text/javascript"
+src="../js/jquery.min.js"
+></script>
+<script language="JavaScript" type="text/javascript"
+src="../js/bootstrap.min.js"
+></script>
+		<script language="JavaScript" type="text/javascript" src="../js/jquery.transform-0.9.3.js">
+		</script>
+
+		<script language="JavaScript" type="text/javascript" src="../js/jqueryflapper.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/flapdemo.js">
+		</script>
+
+	<script language="JavaScript" type="text/javascript">
+
+
+var d=new Date();
+var monthname=new Array("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+var TODAY = monthname[d.getMonth()] + " " + d.getDate();
+
+</script>
+	<script language="JavaScript" type="text/javascript">
+
+	$(document).ready(function () {
+	    // Handler for .ready() called.
+	    window.setTimeout(function () {
+	        location.href = "/DisplayBoard/moncton";
+	    }, 20000);
+		
+	});
+
+	</script>
+	</head>
+
+	<body style="background-color:black;">
+
+
+
+
+
+		<center>
+
+				<div class="header">
+					<ul class="list">
+					<li class="listelement"><a href="/DisplayBoard">
+						<img class="logo" src="../img/LCL_White_E.png"/></a></li>
+
+				<li class="listelement" id="txt"> <script language="JavaScript" type="text/javascript">
+                        document.write(TODAY);
+                    </script></li>
+
+				</ul>
+
+
+
+				<ul class="list">
+
+			<li class="listelement title">DC <%= name %></li>
+
+
+			</ul>
+
+
+
+
+			</div>
+
+</center>
+<div style="text-align:center;">
+	<label style="color:black;font-size:26px;font-weight:bold;">DC <%= name %></label>
+</div>
+
+<div class="center">
+
+									<input id="date" class="L"/>
+									<input id="hp" class="L"/>
+									<input id="fpp" class="L"/>
+									<input id="flow" class="L"/>
+									<input id="hp_left" class="L"/>
+									<input id="fpp_left" class="L"/>
+									<input id="flow_left" class="L"/>
+</div>
+		<script language="JavaScript">
+
+		var options={
+			chars: null,
+
+  timing: 120,
+  min_timing: 10,
+	 width: 27,
+	align: 'left',
+	chars_preset: 'alpha',
+	transform: true,
+	threshhold: 120,
+ };
+
+
+				$('#date').flapper(options).val('     DATE : <%= sql.rows[0][1] %>').change();
+
+
+				$('#hp').flapper(options).val('       HP : <%= sql.rows[0][2] %>').change();
+
+
+				$('#fpp').flapper(options).val('      FPP : <%= sql.rows[0][3] %>').change();
+
+
+				$('#flow').flapper(options).val('     FLOW : <%= sql.rows[0][4] %>').change();
+
+
+				$('#hp_left').flapper(options).val('  HP LEFT : <%= sql.rows[0][5] %>').change();
+
+				$('#fpp_left').flapper(options).val(' FPP LEFT : <%= sql.rows[0][6] %>').change();
+
+				$('#flow_left').flapper(options).val('FLOW LEFT : <%= sql.rows[0][7] %>').change();
+		</script>
+		<script>
+
+		</script>
+
+
+
+	</body>
+</html>

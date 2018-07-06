@@ -1,0 +1,301 @@
+
+
+<html>
+	<head>
+		<title>Display Board</title>
+
+<meta http-equiv="refresh" content="90" name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<link rel="stylesheet" href="../css/departure-board.css" />
+<link rel="stylesheet" href="../css/flapper.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/morphext.css" />
+<link rel="stylesheet" href="../css/animate.css" />
+<script language="JavaScript" type="text/javascript"
+src="../js/jquery.min.js"
+></script>
+<script language="JavaScript" type="text/javascript"
+src="../js/bootstrap.min.js"
+></script>
+		<script language="JavaScript" type="text/javascript" src="../js/jquery.transform-0.9.3.js">
+		</script>
+
+		<script language="JavaScript" type="text/javascript" src="../js/jqueryflapper.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/flapdemo.js">
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../js/morphext.js">
+		</script>
+
+	<script language="JavaScript" type="text/javascript">
+
+
+var d=new Date();
+var monthname=new Array("Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+var TODAY = monthname[d.getMonth()] + " " + d.getDate();
+
+</script>
+
+	</head>
+
+	<body style="background-color:black;">
+
+
+
+
+
+		<center>
+
+				<div class="header">
+					<ul class="list">
+					<li class="listelement"><a href="/DisplayBoard">
+						<img class="logo" src="../img/LCL_White_E.png"/></a></li>
+
+				<li class="listelement" id="txt"> <script language="JavaScript" type="text/javascript">
+                        document.write(TODAY);
+                    </script></li>
+
+				</ul>
+
+
+
+				<ul class="list">
+
+
+
+
+			</ul>
+
+
+
+
+			</div>
+
+</center>
+<div style="text-align:center;">
+
+</div>
+
+<div class="center">
+  <!-- <input id="datename" class="L"/> -->
+   <!-- Ottawa -->
+  <div >
+
+    <div>	<input type="text" name="" id='dcOttawa' class="M"></div>
+
+  </div>
+<div id="rotate">
+
+
+						<div>	<input type="text" name="" class="S" id='hp'><input type="text" class="S" name="" id='hp_left'></div>
+						<div>	<input type="text" name=""class="S" id='fpp'><input type="text" class="S" name="" id='fpp_left'></div>
+						<div><input type="text" name="" class="S" id='flow'><input type="text" class="S" name="" id='flow_left'></div>
+						<!-- <div>	<label id='hp_left'></div> -->
+						<!-- <div>	<label id='fpp_left'>	</div> -->
+						<!-- <div>	<label id='flow_left'>	</div> -->
+
+</div>
+ <!-- Maple Grove -->
+<div >
+
+  <div>	<input type="text" name="" id='dcMG' class="M"></div>
+
+</div>
+<div id="rotate1">
+
+  <div>	<input type="text" class="S" name="" id='hp1'><input class="S" type="text" name="" id='hp_left1'></div>
+  <div>	<input type="text" class="S" name="" id='fpp1'><input class="S" type="text" name="" id='fpp_left1'></div>
+  <div><input type="text" class="S" name="" id='flow1'><input class="S" type="text" name="" id='flow_left1'></div>
+</div>
+
+
+ <!-- Ajax -->
+<div >
+
+  <div>	<input type="text" name="" id='dcAjax' class="M"></div>
+
+</div>
+<div id="rotate2">
+
+  <div>	<input type="text" class="S" name="" id='hp2'><input class="S" type="text" name="" id='hp_left2'></div>
+  <div>	<input type="text" class="S" name="" id='fpp2'><input class="S" type="text" name="" id='fpp_left2'></div>
+  <div><input type="text" class="S" name="" id='flow2'><input class="S" type="text" name="" id='flow_left2'></div>
+</div>
+
+ <!-- South Caledon -->
+<div >
+
+  <div>	<input type="text" name="" id='dcSC' class="M"></div>
+
+</div>
+<div id="rotate3">
+
+  <div>	<input type="text" class="S" name="" id='hp3'><input class="S" type="text" name="" id='hp_left3'></div>
+  <div>	<input type="text" class="S" name="" id='fpp3'><input class="S" type="text" name="" id='fpp_left3'></div>
+  <div><input type="text" class="S" name="" id='flow3'><input class="S" type="text" name="" id='flow_left3'></div>
+</div>
+
+</div>
+		<script language="JavaScript">
+
+		var options={
+			chars: null,
+
+  timing: 120,
+  min_timing: 10,
+	 width: 35,
+	align: 'left',
+	chars_preset: 'alpha',
+	transform: true,
+	threshhold: 120,
+ };
+
+
+// OTTAWA
+
+
+
+				$('#date').flapper(options).val('     OTTAWA DATE : <%= data1[0][1] %>').change();
+
+$('#dcOttawa').flapper(options).val('OTTAWA ').change();
+				$('#hp').flapper(options).val('           HP : <%= data1[0][2] %>').change();
+
+
+				$('#fpp').flapper(options).val('          FPP : <%= data1[0][3] %>').change();
+
+
+				$('#flow').flapper(options).val('         FLOW : <%= data1[0][4] %>').change();
+
+
+				$('#hp_left').flapper(options).val('      HP LEFT : <%= data1[0][5] %>').change();
+
+				$('#fpp_left').flapper(options).val('     FPP LEFT : <%= data1[0][6] %>').change();
+
+				$('#flow_left').flapper(options).val('    FLOW LEFT : <%= data1[0][7] %>').change();
+
+
+        // Maple Grove
+
+
+$('#dcMG').flapper(options).val('MAPLE GROVE ').change();
+        $('#date1').flapper(options).val(' DATE : <%= data2[0][1] %>').change();
+
+
+        $('#hp1').flapper(options).val('           HP : <%= data2[0][2] %>').change();
+
+
+        $('#fpp1').flapper(options).val('          FPP : <%= data2[0][3] %>').change();
+
+
+        $('#flow1').flapper(options).val('         FLOW : <%= data2[0][4] %>').change();
+
+
+        $('#hp_left1').flapper(options).val('      HP LEFT : <%= data2[0][5] %>').change();
+
+        $('#fpp_left1').flapper(options).val('     FPP LEFT : <%= data2[0][6] %>').change();
+
+        $('#flow_left1').flapper(options).val('    FLOW LEFT : <%= data2[0][7] %>').change();
+
+
+
+        // Ajax
+
+
+$('#dcAjax').flapper(options).val('AJAX ').change();
+        				$('#date2').flapper(options).val('        DATE : <%= data3[0][1] %>').change();
+
+
+        				$('#hp2').flapper(options).val('           HP : <%= data3[0][2] %>').change();
+
+
+        				$('#fpp2').flapper(options).val('          FPP : <%= data3[0][3] %>').change();
+
+
+        				$('#flow2').flapper(options).val('         FLOW : <%= data3[0][4] %>').change();
+
+
+        				$('#hp_left2').flapper(options).val('      HP LEFT : <%= data3[0][5] %>').change();
+
+        				$('#fpp_left2').flapper(options).val('     FPP LEFT : <%= data3[0][6] %>').change();
+
+        				$('#flow_left2').flapper(options).val('    FLOW LEFT : <%= data3[0][7] %>').change();
+
+
+                // South Caledon
+
+
+$('#dcSC').flapper(options).val('S. CALEDON ').change();
+                				$('#date3').flapper(options).val('   DATE : <%= data4[0][1] %>').change();
+
+
+                				$('#hp3').flapper(options).val('           HP : <%= data4[0][2] %>').change();
+
+
+                				$('#fpp3').flapper(options).val('          FPP : <%= data4[0][3] %>').change();
+
+
+                				$('#flow3').flapper(options).val('         FLOW : <%= data4[0][4] %>').change();
+
+
+                				$('#hp_left3').flapper(options).val('      HP LEFT : <%= data4[0][5] %>').change();
+
+                				$('#fpp_left3').flapper(options).val('     FPP LEFT : <%= data4[0][6] %>').change();
+
+                				$('#flow_left3').flapper(options).val('    FLOW LEFT : <%= data4[0][7] %>').change();
+
+
+
+		</script>
+		<script>
+		(function($){
+$.fn.extend({
+rotaterator: function(options) {
+
+	 var defaults = {
+			 fadeSpeed: 100,
+			 pauseSpeed: 5200,
+child:null
+	 };
+
+	 var options = $.extend(defaults, options);
+
+	 return this.each(function() {
+				 var o =options;
+				 var obj = $(this);
+				 var items = $(obj.children(), obj);
+ items.each(function() {$(this).hide();})
+ if(!o.child){var next = $(obj).children(':first');
+ }else{var next = o.child;
+ }
+ $(next).fadeIn(o.fadeSpeed, function() {
+	 $(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function() {
+		 var next = $(this).next();
+		 if (next.length == 0){
+				 next = $(obj).children(':first');
+		 }
+		 $(obj).rotaterator({child : next, fadeSpeed : o.fadeSpeed, pauseSpeed : o.pauseSpeed});
+	 })
+ });
+	 });
+}
+});
+})(jQuery);
+
+$(document).ready(function() {
+
+  $('#dcOttawa').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+  $('#dcAjax').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+  $('#dcMG').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+  $('#dcSC').rotaterator({fadeSpeed:1100, pauseSpeed:54200});
+$('#rotate').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+$('#rotate1').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+$('#rotate2').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+$('#rotate3').rotaterator({fadeSpeed:1100, pauseSpeed:5200});
+});
+	        </script>
+
+
+
+	</body>
+</html>

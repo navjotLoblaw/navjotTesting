@@ -1,0 +1,122 @@
+{
+  "Ontario": [
+    {
+      "dc": "D003",
+      "name": "Maple Grove",
+      "username": "PR279WM",
+      "sid": "PR271",
+      "host":"LAKRWMSPRO1.ngco.com"
+    },
+    {
+      "dc": "D060",
+      "name": "Ajax",
+      "username": "PR279WM",
+      "sid": "PR271",
+      "host":"LAKRWMSPRO1.ngco.com"
+    },
+    {
+      "dc": "D016",
+      "name": "Ottawa",
+      "username": "PR405WM",
+      "sid": "PR271",
+      "host":"LAKRWMSPRO1.ngco.com"
+    },
+    {
+      "dc": "D061",
+      "name": "South Caledon",
+      "username": "PR455WM",
+      "sid": "PR271",
+      "host":"LAKRWMSPRO1.ngco.com"
+    }
+  ],
+  "Atlantic": [
+    {
+      "dc": "D006",
+      "name": "Atlantic Freezer",
+      "username": "PR274WM",
+      "sid": "PR273"
+    },
+    {
+      "dc": "D021",
+      "name": "Lakeside",
+      "username": "PR275WM",
+      "sid": "PR273"
+    },
+    {
+      "dc": "D015",
+      "name": "St. John's",
+      "username": "PR305WM",
+      "sid": "PR273"
+    },
+    {
+      "dc": "D014",
+      "name": "Moncton",
+      "username": "PR380WM",
+      "sid": "PR273"
+    },
+    {
+      "dc": "D024",
+      "name": "Caledonia",
+      "username": "PR381WM",
+      "sid": "PR273"
+    }
+  ],
+  "Quebec": [
+    {
+      "dc": "D072",
+      "name": "Francis Hughes",
+      "username": "PR228WM",
+      "sid": "PR270"
+    },
+    {
+      "dc": "D067",
+      "name": "Boucherville",
+      "username": "PR406WM",
+      "sid": "PR270"
+    }
+  ],
+  "West": [
+    {
+      "dc": "D057",
+      "name": "South Surrey",
+      "username": "PR257WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": 37,
+      "name": "Winnipeg",
+      "username": "PR282WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": "D031",
+      "name": "Freeport",
+      "username": "PR281WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": "D004",
+      "name": "Edmonton",
+      "username": "PR280WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": "D035",
+      "name": "Vancouver",
+      "username": "PR276WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": "D032",
+      "name": "Pitt Meadows",
+      "username": "PR456WM",
+      "sid": "PR272"
+    },
+    {
+      "dc": "D034",
+      "name": "Regina",
+      "username": "PR283WM",
+      "sid": "PR272"
+    }
+  ]
+}
